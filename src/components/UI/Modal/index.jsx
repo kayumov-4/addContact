@@ -13,6 +13,11 @@ function Modal({ setOpenModal, setContact, contact }) {
     setContact([...contact, newContact]);
     setOpenModal(false);
   }
+  function cancel() {
+    nameInputRef.current.value = "";
+    numberInputRef.current.value = "";
+    setOpenModal(false);
+  }
   return (
     <div className="modal">
       <div className="modal_wrapper ">
@@ -44,7 +49,10 @@ function Modal({ setOpenModal, setContact, contact }) {
         </div>
         <div className="modal_wrapper_footer">
           <div>
-            <button className="w-[100px] h-[40px] bg-red-500 text-white rounded  ">
+            <button
+              onClick={() => cancel()}
+              className="w-[100px] h-[40px] bg-red-500 text-white rounded  "
+            >
               Cancel
             </button>
             <button

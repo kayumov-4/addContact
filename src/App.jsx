@@ -5,7 +5,10 @@ function App() {
   const [openModal, setOpenModal] = useState(false);
   const [contact, setContact] = useState([]);
 
-  console.log(contact);
+  const deleteContact = (id) => {
+    const filterdContacts = contact.filter((item) => item.id != id);
+    setContact(filterdContacts);
+  };
   return (
     <>
       <div className="container mx-auto ">
@@ -33,6 +36,8 @@ function App() {
               console.log(item);
               return (
                 <Card
+                  id={item.id}
+                  deleteContact={deleteContact}
                   key={index}
                   contact_name={item.contactName}
                   contact_number={item.contactNumber}

@@ -1,6 +1,11 @@
 import user from "../../../images/icons8-user-100.png";
 
-export default function Card({ contact_number, contact_name }) {
+export default function Card({
+  contact_number,
+  contact_name,
+  deleteContact,
+  id,
+}) {
   return (
     <div className="card bg-white flex p-5 gap-[30px] items-center justify-start rounded">
       <img src={user} alt="laptop" />
@@ -14,7 +19,10 @@ export default function Card({ contact_number, contact_name }) {
             {contact_name ? contact_name : "+998 95 977 40 40"}
           </p>
         </div>
-        <button className="w-40 h-10 bg-red-500 text-white rounded  ">
+        <button
+          onClick={() => deleteContact(id)}
+          className="w-40 h-10 bg-red-500 text-white rounded  "
+        >
           Delete
         </button>
       </div>
